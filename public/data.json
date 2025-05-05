@@ -1,0 +1,134 @@
+[
+    {
+      "id": 1,
+      "name": "Smart Home Box",
+      "thumbnail": "https://unsplash.com/photos/a-laptop-computer-sitting-on-top-of-a-table-_0T3hgs3lig",
+      "banner": "https://unsplash.com/photos/turned-on-charcoal-google-home-mini-and-smartphone-anapPhJFRhM",
+      "frequency": "Yearly",
+      "price": 199.99,
+      "description": "Transform your home into a smart home with curated smart devices, home automation products, and IoT gadgets.",
+      "tech_category": "Smart Home",
+      "features": [
+        "Smart Home Devices",
+        "Home Automation Tools",
+        "Cutting-edge IoT Gadgets"
+      ],
+      "subscription_benefits": [
+        "Discount on Future Smart Home Purchases",
+        "Exclusive Smart Home Tutorials",
+        "Early Access to Product Releases"
+      ],
+      "ratings": 4.8,
+      "number_of_reviews": 315
+    },
+    {
+      "id": 2,
+      "name": "Smart Security Kit",
+      "thumbnail": "https://example.com/images/smart-security-kit-thumbnail.jpg",
+      "banner": "https://example.com/images/smart-security-kit-banner.jpg",
+      "frequency": "Yearly",
+      "price": 249.99,
+      "description": "Secure your home with state-of-the-art security cameras, motion detectors, and door/window sensors.",
+      "tech_category": "Smart Security",
+      "features": [
+        "Security Cameras",
+        "Motion Detection",
+        "Door/Window Sensors"
+      ],
+      "subscription_benefits": [
+        "Free System Updates",
+        "24/7 Customer Support",
+        "Access to Smart Security Guides"
+      ],
+      "ratings": 4.7,
+      "number_of_reviews": 220
+    },
+    {
+      "id": 3,
+      "name": "Smart Light Package",
+      "thumbnail": "https://example.com/images/smart-light-package-thumbnail.jpg",
+      "banner": "https://example.com/images/smart-light-package-banner.jpg",
+      "frequency": "Monthly",
+      "price": 49.99,
+      "description": "Control your home lighting with voice commands, timers, and color settings.",
+      "tech_category": "Smart Lighting",
+      "features": [
+        "Voice-Controlled Lighting",
+        "Timer Functions",
+        "Customizable Colors"
+      ],
+      "subscription_benefits": [
+        "Exclusive Lighting Effects",
+        "Discount on Smart Lights Accessories",
+        "Early Access to New Lighting Designs"
+      ],
+      "ratings": 4.9,
+      "number_of_reviews": 180
+    },
+    {
+      "id": 4,
+      "name": "Smart Thermostat",
+      "thumbnail": "https://example.com/images/smart-thermostat-thumbnail.jpg",
+      "banner": "https://example.com/images/smart-thermostat-banner.jpg",
+      "frequency": "Yearly",
+      "price": 129.99,
+      "description": "Adjust your home temperature remotely, efficiently manage your energy, and monitor your environment.",
+      "tech_category": "Smart Thermostats",
+      "features": [
+        "Remote Temperature Control",
+        "Energy Management",
+        "Environment Monitoring"
+      ],
+      "subscription_benefits": [
+        "Discount on Smart Thermostat Upgrades",
+        "Exclusive Energy-saving Tips",
+        "Early Access to New Features"
+      ],
+      "ratings": 4.6,
+      "number_of_reviews": 250
+    },
+    {
+      "id": 5,
+      "name": "Smart Kitchen Assistant",
+      "thumbnail": "https://example.com/images/smart-kitchen-assistant-thumbnail.jpg",
+      "banner": "https://example.com/images/smart-kitchen-assistant-banner.jpg",
+      "frequency": "Yearly",
+      "price": 179.99,
+      "description": "Enhance your cooking experience with smart kitchen appliances and recipe suggestions.",
+      "tech_category": "Smart Kitchen",
+      "features": [
+        "Smart Cooking Appliances",
+        "Recipe Suggestions",
+        "Kitchen Monitoring"
+      ],
+      "subscription_benefits": [
+        "Exclusive Recipe Access",
+        "Discount on Kitchen Appliances",
+        "Early Access to Cooking Guides"
+      ],
+      "ratings": 4.7,
+      "number_of_reviews": 310
+    },
+    {
+      "id": 6,
+      "name": "Smart Garden System",
+      "thumbnail": "https://example.com/images/smart-garden-system-thumbnail.jpg",
+      "banner": "https://example.com/images/smart-garden-system-banner.jpg",
+      "frequency": "Yearly",
+      "price": 219.99,
+      "description": "Automate your garden with smart watering systems, soil moisture sensors, and plant monitoring.",
+      "tech_category": "Smart Garden",
+      "features": [
+        "Automated Watering",
+      "Soil Moisture Sensors",
+      "Plant Health Monitoring"
+    ],
+    "subscription_benefits": [
+      "Discount on Future Garden Purchases",
+      "Exclusive Gardening Tips",
+      "Early Access to New Garden Features"
+    ],
+    "ratings": 4.8,
+    "number_of_reviews": 280
+  }
+]

@@ -1,8 +1,12 @@
 import React from "react";
 import Banner from "../Componenets/Banner/Banner";
 import { FaMoneyBillWave, FaLightbulb, FaTools, FaBoxOpen, FaCheckCircle, FaTruck } from "react-icons/fa";
+import { useLoaderData } from "react-router";
+import Service from "../Componenets/Service/Service";
 
 const Home = () => {
+
+  const datas = useLoaderData();
   return (
     <div className="px-4 md:px-10">
       <main className="my-10 space-y-16">
@@ -11,8 +15,10 @@ const Home = () => {
         {/* Subscription */}
         <section className="text-center">
             <h2 className="text-3xl font-bold  mb-6">Our Services</h2>
-            <div className="grid ">
-
+            <div className="grid md:grid-cols-2">
+              {
+                datas.map(data=><Service key={data.id} data ={data}></Service>)
+              }
             </div>
         </section>
         {/* Why Subscribe Section */}

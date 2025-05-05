@@ -9,18 +9,19 @@ const Banner = () => {
   const slides = [
     {
       title: "Discover Monthly Tech Surprises",
-      subtitle: "Handpicked gadgets and accessories delivered to your doorstep.",
-      bgColor: "bg-gradient-to-r from-cyan-500 to-blue-500",
+      subtitle:
+        "Handpicked gadgets and accessories delivered to your doorstep.",
+      image: "https://i.ibb.co.com/C3c1YC8T/tech-service.jpg", 
     },
     {
       title: "Curated Just For You",
       subtitle: "Personalized subscription boxes based on your preferences.",
-      bgColor: "bg-gradient-to-r from-purple-500 to-pink-500",
+      image: "https://i.ibb.co.com/sdwRFvSQ/subscription.jpg",
     },
     {
       title: "Support Local Innovators",
       subtitle: "Every box helps local businesses and creators grow.",
-      bgColor: "bg-gradient-to-r from-green-500 to-lime-500",
+      image: "https://i.ibb.co.com/q3331h5D/9010726-4053104.jpg",
     },
   ];
 
@@ -38,9 +39,29 @@ const Banner = () => {
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
-            <div className={`${slide.bgColor} h-60 md:h-80 flex flex-col justify-center items-center text-white text-center p-5`}>
-              <h2 className="text-2xl md:text-4xl font-bold mb-2">{slide.title}</h2>
-              <p className="text-sm md:text-lg max-w-2xl">{slide.subtitle}</p>
+            <div
+              className="relative h-60 md:h-[600px] w-full bg-cover bg-center flex items-center justify-center text-center"
+              style={{ backgroundImage: `url(${slide.image})` }}
+            >
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/40 to-transparent"></div>
+
+              {/* Content */}
+              <div className="relative z-10 text-white p-4 max-w-3xl space-y-10">
+                <h2 className="text-2xl md:text-5xl font-bold">
+                  {slide.title}
+                </h2>
+                <p className="text-sm md:text-xl font-semibold">{slide.subtitle}</p>
+                <p className="text-xs md:text-lg">
+                  Explore exclusive gadgets, innovative tools, and handpicked
+                  tech accessories delivered right to your doorstep every month.
+                </p>
+                <ul className="text-sm md:text-lg list-disc list-inside">
+                  <li>No commitment – cancel anytime</li>
+                  <li>Tailored to your interests</li>
+                  <li>Free shipping on all boxes</li>
+                </ul>
+              </div>
             </div>
           </SwiperSlide>
         ))}
