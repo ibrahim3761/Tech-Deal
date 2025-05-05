@@ -3,6 +3,7 @@ import Homelayouts from "../Layouts/Homelayouts";
 import Home from "../Pages/Home";
 import LogIn from "../Pages/LogIn";
 import Register from "../Pages/Register";
+import ServiceDetails from "../Pages/ServiceDetails";
 
 export const router = createBrowserRouter([
     {
@@ -24,7 +25,9 @@ export const router = createBrowserRouter([
                 Component:Register,
             },
             {
-                path:"servicedetails/:id"
+                path:"servicedetails/:id",
+                Component:ServiceDetails,
+                loader:()=>fetch("/data.json")
             }
         ]
     },

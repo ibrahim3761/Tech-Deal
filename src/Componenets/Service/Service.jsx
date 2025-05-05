@@ -1,7 +1,9 @@
 import React from "react";
+import { Link } from "react-router";
 
 const Service = ({ data }) => {
   const {
+    id,
     name,
     thumbnail,
     tech_category,
@@ -24,9 +26,11 @@ const Service = ({ data }) => {
       <p className="text-lg font-semibold text-green-600 mb-4">${price} / {frequency}</p>
 
       {/* View More Button */}
+      <Link to={`/servicedetails/${id}`}>
       <button className="mt-auto bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition">
         View More
       </button>
+      </Link>
     </div>
   );
 };
