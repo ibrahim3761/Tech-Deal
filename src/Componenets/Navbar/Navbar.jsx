@@ -42,18 +42,6 @@ const Navbar = () => {
               My profile
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              to="/contact-us"
-              className={({ isActive }) =>
-                isActive
-                  ? "border-b-2 border-green-500 text-green-600 font-semibold pb-1"
-                  : "text-gray-700 hover:text-green-500 pb-1"
-              }
-            >
-              Contact Us
-            </NavLink>
-          </li>
         </>
       );
 
@@ -87,7 +75,7 @@ const Navbar = () => {
              {links}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">Tech Deal</a>
+          <Link to="/" className="btn btn-ghost text-xl">Tech Deal</Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">

@@ -32,7 +32,7 @@ const ServiceDetails = () => {
         setRating('');
     };
 
-    if (!service) return <div>Loading...</div>;
+    if (!service) return <div className='text-center items-center'><span className="loading loading-infinity loading-xl"></span></div>;
 
     return (
         <div className="max-w-6xl mx-auto p-6">

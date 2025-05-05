@@ -4,11 +4,14 @@ import Home from "../Pages/Home";
 import LogIn from "../Pages/LogIn";
 import Register from "../Pages/Register";
 import ServiceDetails from "../Pages/ServiceDetails";
+import About from "../Pages/About";
+import Error from "../Pages/Error";
 
 export const router = createBrowserRouter([
     {
         path:"/",
         Component:Homelayouts,
+        errorElement:<Error></Error>,
         children:[
             {
                 index:true,
@@ -28,6 +31,10 @@ export const router = createBrowserRouter([
                 path:"servicedetails/:id",
                 Component:ServiceDetails,
                 loader:()=>fetch("/data.json")
+            },
+            {
+                path:"about",
+                Component:About,
             }
         ]
     },

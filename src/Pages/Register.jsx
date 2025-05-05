@@ -6,7 +6,8 @@ import { Link } from "react-router";
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   return (
-    <div className="max-w-sm mx-auto my-2 md:my-10 p-5 border border-gray-300 rounded-lg shadow-md bg-white">
+    <div className="bg-base-200 py-2 md:py-10">
+      <div className="max-w-sm mx-auto  p-5 border border-gray-300 rounded-lg shadow-md bg-white">
       <h2 className="font-bold text-2xl mb-4">Register</h2>
       <form className="space-y-4">
         {/* Email Feild */}
@@ -144,12 +145,13 @@ const Register = () => {
             </p>
           )} */}
       </form>
-      <p className="text-center mt-4">
+      <p className="text-center mt-4 text-lg font-semibold">
         Alreay have an account? Please{" "}
         <Link className="text-blue-600" to="/login">
           Log in
         </Link>
       </p>
+    </div>
     </div>
   );
 };

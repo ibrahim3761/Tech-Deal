@@ -62,9 +62,6 @@ const Footer = () => {
                 <Link to="/privacy" className="link link-hover">
                   Privacy Policy
                 </Link>
-                <Link to="/contact" className="link link-hover">
-                  Contact Us
-                </Link>
               </ul>
             </nav>
           </div>
