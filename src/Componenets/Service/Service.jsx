@@ -12,7 +12,7 @@ const Service = ({ data }) => {
   return (
     <div className="bg-base-200 rounded-xl shadow-md p-4 m-4 hover:shadow-xl transition flex flex-col">
       {/* Thumbnail */}
-      <img src={thumbnail} alt={name} className="w-full h-48 object-cover rounded-lg mb-4" />
+      <img src={thumbnail} alt={name} className="w-full h-60 object-fit rounded-lg mb-4" />
       
       {/* Name */}
       <h3 className="text-xl font-bold mb-2">{name}</h3>

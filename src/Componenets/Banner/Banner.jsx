@@ -40,7 +40,7 @@ const Banner = () => {
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
             <div
-              className="relative h-60 md:h-[600px] w-full bg-cover bg-center flex items-center justify-center text-center"
+              className="relative min-h-screen md:min-h-[600px] w-full bg-cover bg-center flex items-center justify-center text-center"
               style={{ backgroundImage: `url(${slide.image})` }}
             >
               {/* Overlay */}
@@ -48,7 +48,7 @@ const Banner = () => {
 
               {/* Content */}
               <div className="relative z-10 text-white p-4 max-w-3xl space-y-10">
-                <h2 className="text-2xl md:text-5xl font-bold">
+                <h2 className="text-xl md:text-5xl font-bold">
                   {slide.title}
                 </h2>
                 <p className="text-sm md:text-xl font-semibold">{slide.subtitle}</p>
