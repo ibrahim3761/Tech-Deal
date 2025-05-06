@@ -1,17 +1,33 @@
-import React, { use } from "react";
-import { Link } from "react-router";
+import React, { use, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const LogIn = () => {
-
-  const {googleLogIn} = use(AuthContext);
+  const [error,setError] =  useState("")
+  const {googleLogIn,logIn} = use(AuthContext);
+  const location = useLocation();
+  const navigate  = useNavigate();
+  console.log(location.state);
 
   const handleLogin=(e)=>{
     e.preventDefault();
-    const name = e.target.name.value;
+    const password = e.target.password.value;
     const email = e.target.email.value;
-    console.log(name,email);
-    
+    console.log(email,password);
+    logIn(email,password)
+    .then((result) => {
+      // Signed in 
+      const user = result.user;
+      console.log(user);
+      navigate(`${location.state? location.state : "/"}`)
+      
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      //const errorMessage = error.message;
+      setError(errorCode)
+    });
     
 
   }
@@ -20,6 +36,8 @@ const LogIn = () => {
     googleLogIn()
     .then((result) => {
       console.log(result);
+     
+      navigate(`${location.state? location.state : "/"}`)
       
     }).catch((error) => {
       console.log(error);
@@ -56,6 +74,7 @@ const LogIn = () => {
                 <div className="pt-5">
                   <a className="link link-hover text-blue-600">Forgot password?</a>
                 </div>
+                {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
                 <button className="btn btn-primary w-full mt-4 bg-blue-600 hover:bg-blue-700 border-0">Login</button>
                 
                 <div className="divider">Or</div>

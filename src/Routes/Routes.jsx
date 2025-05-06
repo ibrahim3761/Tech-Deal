@@ -7,6 +7,8 @@ import ServiceDetails from "../Pages/ServiceDetails";
 import About from "../Pages/About";
 import Error from "../Pages/Error";
 import MyProfile from "../Pages/MyProfile";
+import PrivateRoute from "../Provider/PrivateRoute";
+import Loader from "../Pages/Loader";
 
 export const router = createBrowserRouter([
     {
@@ -39,7 +41,10 @@ export const router = createBrowserRouter([
             },
             {
                 path:"my-profile",
-                Component:MyProfile,
+                element:(<PrivateRoute>
+                    <MyProfile></MyProfile>
+                </PrivateRoute>),
+                //hydrateFallbackElement: <Loader></Loader>
             }
         ]
     },

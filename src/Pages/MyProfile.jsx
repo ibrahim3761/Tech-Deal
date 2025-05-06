@@ -1,9 +1,8 @@
-import React, { use, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
-import { updateProfile } from 'firebase/auth';
 
 const MyProfile = () => {
-  const { user } = use(AuthContext);
+  const { user, updateUser } = useContext(AuthContext);
   const [name, setName] = useState(user?.displayName || '');
   const [photoURL, setPhotoURL] = useState(user?.photoURL || '');
   const [success, setSuccess] = useState('');
@@ -15,7 +14,7 @@ const MyProfile = () => {
     setSuccess('');
 
     // Update user profile in Firebase
-    updateProfile(user, {
+    updateUser({
       displayName: name,
       photoURL: photoURL,
     })
@@ -29,7 +28,7 @@ const MyProfile = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-5 border rounded-lg shadow-lg bg-white">
+    <div className="max-w-md mx-auto my-10  p-5 border rounded-lg shadow-lg bg-white">
       <h2 className="text-2xl font-bold text-center mb-5">My Profile</h2>
 
       {/* User Info */}
