@@ -8,7 +8,7 @@ const Register = () => {
   return (
     <div className="bg-base-200 py-2 md:py-10">
       <div className="max-w-sm mx-auto  p-5 border border-gray-300 rounded-lg shadow-md bg-white">
-      <h2 className="font-bold text-2xl mb-4">Register</h2>
+      <h2 className="font-bold text-center text-2xl mb-4">Register</h2>
       <form className="space-y-4">
         {/* Email Feild */}
 
@@ -107,6 +107,12 @@ const Register = () => {
           type="submit"
           value="Submit"
         />
+        {/* Divider */}
+        <div className="flex items-center my-4">
+          <div className="flex-grow border-t border-gray-300"></div>
+          <span className="mx-2 text-gray-500">OR</span>
+          <div className="flex-grow border-t border-gray-300"></div>
+        </div>
         {/* Google */}
         <button className="btn btn-primary w-full">
           <svg
