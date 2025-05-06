@@ -32,19 +32,25 @@ export const router = createBrowserRouter([
             },
             {
                 path:"servicedetails/:id",
-                Component:ServiceDetails,
-                loader:()=>fetch("/data.json")
+                element: (<PrivateRoute>
+                    <ServiceDetails></ServiceDetails>
+                </PrivateRoute>),
+                loader:()=>fetch("/data.json"),
+                hydrateFallbackElement: <Loader></Loader>
             },
             {
                 path:"about",
-                Component:About,
+                element:(<PrivateRoute>
+                    <About></About>
+                </PrivateRoute>),
+                hydrateFallbackElement: <Loader></Loader>
             },
             {
                 path:"my-profile",
                 element:(<PrivateRoute>
                     <MyProfile></MyProfile>
                 </PrivateRoute>),
-                //hydrateFallbackElement: <Loader></Loader>
+                hydrateFallbackElement: <Loader></Loader>
             }
         ]
     },

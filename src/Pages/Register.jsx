@@ -44,7 +44,7 @@ const Register = () => {
             //console.log(error);
             setUser(user);
             setError(error)
-            navigate(location.state?.from || "/", { replace: true });
+            navigate(`${location.state ? location.state : "/"}`);
           });
       })
       .catch((error) => {
