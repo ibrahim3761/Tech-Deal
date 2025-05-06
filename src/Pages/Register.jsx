@@ -1,15 +1,38 @@
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { IoMdEyeOff } from "react-icons/io";
 import { Link } from "react-router";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Register = () => {
+  const{googleLogIn} = use(AuthContext);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+
+  const handleRegister=(e)=>{
+    e.preventDefault();
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const photoURL = e.target.photo.value;
+    const password = e.target.password.value;
+    console.log(name,email,photoURL,password);
+    googleLogIn()
+    .then((result) => {
+      console.log(result);
+      
+    }).catch((error) => {
+      console.log(error);
+      setError("error")
+    });
+    
+  }
+
   return (
     <div className="bg-base-200 py-2 md:py-10">
       <div className="max-w-sm mx-auto  p-5 border border-gray-300 rounded-lg shadow-md bg-white">
       <h2 className="font-bold text-center text-2xl mb-4">Register</h2>
-      <form className="space-y-4">
+      <form onSubmit={handleRegister} className="space-y-4">
         {/* Email Feild */}
 
         <label className="input validator join-item">
@@ -142,14 +165,14 @@ const Register = () => {
               ></path>
             </g>
           </svg>
-          SignUp with Google
+          LogIn with Google
         </button>
-        {/* {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
+        {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
           {success && (
             <p className="text-green-500 text-sm mt-2">
               User Created Successfully
             </p>
-          )} */}
+          )} 
       </form>
       <p className="text-center mt-4 text-lg font-semibold">
         Alreay have an account? Please{" "}

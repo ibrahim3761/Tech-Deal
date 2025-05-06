@@ -6,6 +6,7 @@ import Register from "../Pages/Register";
 import ServiceDetails from "../Pages/ServiceDetails";
 import About from "../Pages/About";
 import Error from "../Pages/Error";
+import MyProfile from "../Pages/MyProfile";
 
 export const router = createBrowserRouter([
     {
@@ -35,6 +36,10 @@ export const router = createBrowserRouter([
             {
                 path:"about",
                 Component:About,
+            },
+            {
+                path:"my-profile",
+                ComponentL:MyProfile
             }
         ]
     },
