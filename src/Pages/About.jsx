@@ -15,7 +15,7 @@ const About = () => {
             <div className="flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto mb-20">
                 <div className="md:w-1/2 overflow-hidden rounded-2xl shadow-xl">
                     <img
-                        src="https://i.ibb.co.com/99sqkFcr/about-us.jpg"
+                        src="https://res.cloudinary.com/dueycilps/image/upload/v1746540261/about-us_jvqhvl.jpg"
                         alt="Our team collaborating"
                         className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
                     />
