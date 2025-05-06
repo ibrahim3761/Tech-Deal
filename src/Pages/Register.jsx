@@ -17,15 +17,17 @@ const Register = () => {
     const photoURL = e.target.photo.value;
     const password = e.target.password.value;
     console.log(name,email,photoURL,password);
+
+    
+  }
+  const handleGoogleLogIn = () =>{
     googleLogIn()
     .then((result) => {
       console.log(result);
       
     }).catch((error) => {
       console.log(error);
-      setError("error")
     });
-    
   }
 
   return (
@@ -137,7 +139,7 @@ const Register = () => {
           <div className="flex-grow border-t border-gray-300"></div>
         </div>
         {/* Google */}
-        <button className="btn btn-primary w-full">
+        <button onClick={handleGoogleLogIn} className="btn btn-primary w-full">
           <svg
             aria-label="Google logo"
             width="16"
