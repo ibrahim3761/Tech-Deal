@@ -1,9 +1,13 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router'; // Fixed incorrect import
 
 const Error = () => {
     return (
         <div className="min-h-screen flex flex-col justify-center items-center bg-gray-50 text-center px-4">
+            <Helmet>
+                    <title>Error | Tech Deal</title>
+                  </Helmet>
             <img
                 src="https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="Broken robot illustration"

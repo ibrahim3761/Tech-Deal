@@ -3,6 +3,7 @@ import { FaEye } from "react-icons/fa";
 import { IoMdEyeOff } from "react-icons/io";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const [agree, setAgree] = useState(false);
@@ -69,6 +70,9 @@ const Register = () => {
 
   return (
     <div className="bg-base-200 py-2 md:py-10">
+      <Helmet>
+              <title>Register | Tech Deal</title>
+            </Helmet>
       <div className="max-w-sm mx-auto  p-5 border border-gray-300 rounded-lg shadow-md bg-white">
         <h2 className="font-bold text-center text-2xl mb-4">Register</h2>
         <form onSubmit={handleRegister} className="space-y-4">

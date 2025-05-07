@@ -1,8 +1,14 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const About = () => {
     return (
         <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 text-gray-800 px-6 py-16">
+            <Helmet>
+                            <title>
+                                About | Tech Deal
+                            </title>
+                        </Helmet>
             {/* Hero Section */}
             <div className="text-center max-w-4xl mx-auto mb-16">
                 <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">About Us</h1>

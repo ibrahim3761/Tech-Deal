@@ -9,6 +9,9 @@ import Error from "../Pages/Error";
 import MyProfile from "../Pages/MyProfile";
 import PrivateRoute from "../Provider/PrivateRoute";
 import Loader from "../Pages/Loader";
+import PrivacyPolicy from "../Pages/privacyPolicy";
+import Terms from "../Pages/Terms";
+import ForgotPassword from "../Pages/ForgotPassword";
 
 export const router = createBrowserRouter([
     {
@@ -51,6 +54,18 @@ export const router = createBrowserRouter([
                     <MyProfile></MyProfile>
                 </PrivateRoute>),
                 hydrateFallbackElement: <Loader></Loader>
+            },
+            {
+                path:"privacy",
+                Component:PrivacyPolicy
+            },
+            {
+                path:"terms",
+                Component:Terms
+            },
+            {
+                path:"forgot-password",
+                Component: ForgotPassword,
             }
         ]
     },
