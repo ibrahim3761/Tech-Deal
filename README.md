@@ -1,12 +1,76 @@
-# React + Vite
+# 🛒 Tech Deal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live Site 👉 [https://tech-deal.netlify.app/](https://tech-deal.netlify.app/)
 
-Currently, two official plugins are available:
+## 📚 Project Purpose
+**Tech Deal** is an e-commerce-style website designed to showcase and sell tech gadgets.  
+It provides users with an intuitive interface to browse services, register/login (including Google login), view service details, and manage their profiles securely using Firebase authentication.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Live URL
+🌐 **[Visit Tech Deal](https://tech-deal.netlify.app/)**
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🌟 Key Features
+
+- 🔐 **User Authentication**
+  - Email/password login & register
+  - Google authentication
+  - Password reset feature
+
+- 🛡️ **Protected Routes**
+  - Service details & profile pages are secured for authenticated users only
+
+- 📨 **Password Recovery**
+  - Users can reset their passwords with a password reset email
+
+- 📝 **Terms & Privacy**
+  - Terms & Conditions and Privacy Policy pages for legal compliance
+
+- 🌐 **Responsive Design**
+  - Mobile-friendly and desktop-ready UI built with **Tailwind CSS** and **DaisyUI**
+
+- 🎉 **Toast Notifications**
+  - Real-time feedback using `react-toastify` for errors and successes
+
+- 🎠 **Swiper.js Sliders**
+  - Smooth and responsive sliders for showcasing deals and offers
+
+- ⚡ **SEO Ready**
+  - Dynamic page titles using `react-helmet-async`
+
+---
+
+## 📦 Packages & Dependencies Used
+
+| Package             | Version   | Purpose                         |
+| --------------------|-----------|----------------------------------|
+| **react**           | ^19.0.0   | Frontend library                 |
+| **react-dom**       | ^19.0.0   | DOM rendering                    |
+| **react-router**    | ^7.5.3    | Routing & navigation             |
+| **firebase**        | ^11.6.1   | Authentication & backend         |
+| **react-toastify**  | ^11.0.5   | Toast notifications              |
+| **swiper**          | ^11.2.6   | Sliders & carousels              |
+| **tailwindcss**     | ^4.1.5    | Utility-first CSS framework      |
+| **@tailwindcss/vite**| ^4.1.5   | Tailwind integration with Vite   |
+| **react-helmet-async**| ^2.0.5 | SEO and dynamic meta tags        |
+| **react-icons**     | ^5.5.0    | Icon library                     |
+
+---
+
+## 💻 Tech Stack
+
+- **React** (Frontend library)
+- **Firebase Auth** (User authentication)
+- **Tailwind CSS + DaisyUI** (Styling)
+- **Vite** (Fast development build tool)
+- **Netlify** (Deployment)
+
+---
+
+## 📄 License
+This project is built for educational and portfolio purposes.
+
+---
+
+Made with ❤️ by Mohammad Ibrahim Abdullah 
