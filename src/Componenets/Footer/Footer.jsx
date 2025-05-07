@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../../assets/360_F_256947386_VJGb69dBUeVGRBJEV56nnan2N1hMA8CW.jpg";
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
 const Footer = () => {
   return (
     <div>
@@ -53,18 +53,32 @@ const Footer = () => {
           </div>
         </nav>
         <div>
-            <nav>
-              <h6 className="footer-title">Legal</h6>
-              <ul className="flex flex-col gap-2">
-                <Link to="/terms" className="link link-hover">
-                  Terms & Conditions
-                </Link>
-                <Link to="/privacy" className="link link-hover">
-                  Privacy Policy
-                </Link>
-              </ul>
-            </nav>
-          </div>
+          <nav>
+            <h6 className="footer-title">Legal</h6>
+            <ul className="flex flex-col gap-2">
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "border-b-2 border-blue-500 text-blue-600 font-semibold pb-1"
+                    : "text-white hover:text-blue-500 pb-1"
+                }
+                to="/terms"
+              >
+                Terms & Conditions
+              </NavLink>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "border-b-2 border-blue-500 text-blue-600 font-semibold pb-1"
+                    : "text-white hover:text-blue-500 pb-1"
+                }
+                to="/privacy"
+              >
+                Privacy Policy
+              </NavLink>
+            </ul>
+          </nav>
+        </div>
       </footer>
     </div>
   );

@@ -4,85 +4,181 @@ import { IoMdEyeOff } from "react-icons/io";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Helmet } from "react-helmet-async";
+import { Bounce, toast } from "react-toastify";
 
 const Register = () => {
   const [agree, setAgree] = useState(false);
   const { googleLogIn, createUser, setUser, updateUser } = use(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
-  const [success, setSuccess] = useState(false);
-  const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   console.log(location.state);
 
   const handleRegister = (e) => {
     e.preventDefault();
-    setSuccess(false);
-
+  
     if (!agree) {
-      alert("You must accept the terms and conditions to register.");
+      toast.warn("You must agree to our terms and conditions", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
       return;
     }
-
+  
     const name = e.target.name.value;
     const photo = e.target.photo.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
-    // console.log(name, email, photo, password);
+  
+    //  Password validation
+    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+    if (!passwordRegex.test(password)) {
+      toast.error("Password must be at least 6 characters, include uppercase, lowercase, and a number.", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
+      return;
+    }
+  
     createUser(email, password)
       .then((result) => {
         const user = result.user;
-        // console.log(user);
         updateUser({ displayName: name, photoURL: photo })
           .then(() => {
             setUser({ ...user, displayName: name, photoURL: photo });
             navigate(`${location.state ? location.state : "/"}`);
-            setSuccess(true);
+            toast.success("User registered successfully!", {
+              position: "top-right",
+              autoClose: 3000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+              transition: Bounce,
+            });
           })
           .catch((error) => {
-            // An error occurred
-            // ...
-            //console.log(error);
             setUser(user);
-            setError(error)
+            toast.error(`Profile update failed: ${error.message}`, {
+              position: "top-right",
+              autoClose: 3000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+              transition: Bounce,
+            });
             navigate(`${location.state ? location.state : "/"}`);
           });
       })
       .catch((error) => {
-        //const errorCode = error.code;
-        const errorMessage = error.message;
-        alert(errorMessage);
-        // ..
+        toast.error(`Registration failed: ${error.message}`, {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        });
       });
-      //navigate(`${location.state ? location.state : "/"}`);
   };
+  
 
   const handleGoogleLogIn = () => {
     googleLogIn()
       .then((result) => {
         console.log(result);
         navigate(`${location.state ? location.state : "/"}`);
+        toast.success("Logged in with Google successfully!", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        });
       })
       .catch((error) => {
         console.log(error);
+        toast.error(`Google login failed: ${error.message}`, {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        });
       });
   };
+  
 
   return (
     <div className="bg-base-200 py-2 md:py-10">
       <Helmet>
-              <title>Register | Tech Deal</title>
-            </Helmet>
+        <title>Register | Tech Deal</title>
+      </Helmet>
       <div className="max-w-sm mx-auto  p-5 border border-gray-300 rounded-lg shadow-md bg-white">
         <h2 className="font-bold text-center text-2xl mb-4">Register</h2>
         <form onSubmit={handleRegister} className="space-y-4">
-          {/* Email Feild */}
+          {/* Name Feild */}
 
           <label className="input validator join-item">
-            <input type="text" name="name" placeholder="Your name" required />
+            <svg
+              className="h-[1em] opacity-50"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="currentColor"
+                d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"
+              />
+            </svg>
+            <input
+              type="text"
+              name="name"
+              placeholder="Your name"
+              required
+            />
           </label>
-
+          {/* photo feild */}
           <label className="input validator join-item">
+            <svg
+              className="h-[1em] opacity-50"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="currentColor"
+                d="M21 5h-3.2l-1.8-2H8L6.2 5H3c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 13H3V7h4.2l1.8-2h6l1.8 2H21v11zM12 9c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3zm-9 9l5-6.5 3.5 4.5 4.5-6 7 9H3z"
+              />
+            </svg>
             <input
               type="text"
               name="photo"
@@ -90,7 +186,7 @@ const Register = () => {
               required
             />
           </label>
-
+          {/* Email feild */}
           <label className="input validator join-item">
             <svg
               className="h-[1em] opacity-50"
@@ -141,9 +237,8 @@ const Register = () => {
               name="password"
               required
               placeholder="Password"
-              minLength="8"
-              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-              title="Must be more than 8 characters, including number, lowercase letter, uppercase letter"
+              minLength="6"
+    
             />
             <button
               type="button"
@@ -163,6 +258,7 @@ const Register = () => {
             At least one uppercase letter
           </p>
           <br />
+          {/* checkbox feild */}
           <label className="label">
             <input
               type="checkbox"
@@ -171,7 +267,7 @@ const Register = () => {
               checked={agree}
               onChange={() => setAgree(!agree)}
             />
-            Accept Terms and Conditions
+           <Link className=" underline hover:text-blue-500" to="/terms">Accept Terms and Conditions</Link>
           </label>
           <br />
           {/* Submit */}
@@ -220,14 +316,8 @@ const Register = () => {
             </svg>
             LogIn with Google
           </button>
-          {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
-          {success && (
-            <p className="text-green-500 text-sm mt-2">
-              User Created Successfully
-            </p>
-          )}
         </form>
-        <p className="text-center mt-4 text-lg font-semibold">
+        <p className="text-center mt-4 font-semibold">
           Alreay have an account? Please{" "}
           <Link className="text-blue-600" to="/login">
             Log in

@@ -1,10 +1,10 @@
-import React, { use, useRef, useState } from "react";
+import React, { use, useRef} from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Helmet } from "react-helmet-async";
+import { Bounce, toast } from "react-toastify";
 
 const LogIn = () => {
-  const [error, setError] = useState("");
   const { googleLogIn, logIn } = use(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
@@ -21,6 +21,17 @@ const LogIn = () => {
         // Signed in
         const user = result.user;
         console.log(user);
+        toast.success('Log in successful', {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+          });
         navigate(`${location.state ? location.state : "/"}`);
 
         // ...
@@ -28,7 +39,19 @@ const LogIn = () => {
       .catch((error) => {
         const errorCode = error.code;
         //const errorMessage = error.message;
-        setError(errorCode);
+        console.log(errorCode);
+        
+        toast.warn('Invalid mail or password', {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+          });
       });
   };
 
@@ -36,13 +59,35 @@ const LogIn = () => {
     googleLogIn()
       .then((result) => {
         console.log(result);
-
         navigate(`${location.state ? location.state : "/"}`);
+        toast.success("Logged in with Google successfully!", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        });
       })
       .catch((error) => {
         console.log(error);
+        toast.error(`Google login failed: ${error.message}`, {
+          position: "top-right",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        });
       });
   };
+  
 
   const handleForgotPassword = () => {
     const email = emailRef.current.value;
@@ -50,6 +95,7 @@ const LogIn = () => {
   };
   return (
     <div>
+      
       <Helmet>
         <title>Log-In | Tech Deal</title>
       </Helmet>
@@ -85,7 +131,7 @@ const LogIn = () => {
                     Forgot password?
                   </p>
                 </div>
-                {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
+                
                 <button className="btn btn-primary w-full mt-4 bg-blue-600 hover:bg-blue-700 border-0">
                   Login
                 </button>

@@ -1,6 +1,8 @@
 import React, { use, useRef, useState } from "react";
 import { useLocation } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
+import { Bounce, toast } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 
 const ForgotPassword = () => {
   const { forgotPassword } = use(AuthContext);
@@ -20,6 +22,17 @@ const ForgotPassword = () => {
     forgotPassword(email)
       .then(() => {
         console.log("Password reset email sent!");
+        toast.success('Password reset email sent!', {
+            position: "top-right",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+            });
         window.open("https://mail.google.com/", "_blank");
       })
       .catch((error) => {
@@ -29,6 +42,9 @@ const ForgotPassword = () => {
 
   return (
     <div className="hero bg-base-200 py-[10px] lg:py-[35.5px]">
+        <Helmet>
+                <title>Forgot Password | Tech Deal</title>
+              </Helmet>
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="card bg-base-100 w-sm shrink-0 shadow-2xl">
           <div className="h-1 bg-blue-500"></div>

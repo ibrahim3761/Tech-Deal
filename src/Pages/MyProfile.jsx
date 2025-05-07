@@ -1,6 +1,7 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState} from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Helmet } from "react-helmet-async";
+import { Bounce, toast } from "react-toastify";
 
 const MyProfile = () => {
   const { user, updateUser } = useContext(AuthContext);
@@ -9,10 +10,6 @@ const MyProfile = () => {
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
 
-  // Scroll to top when component mounts
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   const handleUpdate = (e) => {
     e.preventDefault();
@@ -25,10 +22,32 @@ const MyProfile = () => {
       photoURL: photoURL,
     })
       .then(() => {
+        toast.success('Profile updated successfully!', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+          });
         setSuccess("Profile updated successfully!");
       })
       .catch((err) => {
         console.error(err);
+        toast.warn('Failed to update profile', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+          });
         setError("Failed to update profile");
       });
   };

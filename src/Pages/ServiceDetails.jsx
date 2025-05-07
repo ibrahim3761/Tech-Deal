@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { useLoaderData, useParams } from "react-router";
+import { Bounce, toast } from "react-toastify";
 
 const ServiceDetails = () => {
   const [service, setService] = useState(null);
@@ -12,8 +13,7 @@ const ServiceDetails = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    // Scroll to top when component mounts
-    window.scrollTo(0, 0);
+    
     
     const servicedetails = data.find((single) => single.id == id);
     setService(servicedetails);
@@ -21,7 +21,19 @@ const ServiceDetails = () => {
 
   const handleReviewSubmit = () => {
     if (!reviewText.trim() || !rating || rating < 1 || rating > 5) {
-      alert("Please enter a valid review and a rating between 1 and 5.");
+        toast.warn('Please enter a valid review and a rating between 1 and 5.', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+            });
+        
+      //alert("Please enter a valid review and a rating between 1 and 5.");
       return;
     }
 
@@ -127,7 +139,7 @@ const ServiceDetails = () => {
                 </ul>
               </div>
 
-              <button className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg shadow-md transition-all hover:shadow-lg w-full md:w-auto">
+              <button className="bg-blue-600 hover:bg-blue-700 text-white font-medium cursor-pointer py-3 px-6 rounded-lg shadow-md transition-all hover:shadow-lg w-full md:w-auto">
                 Subscribe Now
               </button>
             </div>
@@ -162,7 +174,7 @@ const ServiceDetails = () => {
                 <span className="text-yellow-500 ml-1">★</span>
               </div>
               <button
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition-colors w-full sm:w-auto"
+                className="bg-blue-600 hover:bg-blue-700 cursor-pointer text-white px-6 py-2 rounded-lg transition-colors w-full sm:w-auto"
                 onClick={handleReviewSubmit}
               >
                 Submit Review

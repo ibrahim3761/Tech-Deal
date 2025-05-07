@@ -3,6 +3,7 @@ import Navbar from '../Componenets/Navbar/Navbar';
 import { Outlet } from 'react-router';
 import Footer from '../Componenets/Footer/Footer';
 import { Helmet } from 'react-helmet-async';
+import ScrollToTop from '../Componenets/ScrollToTop/ScrollToTop';
 
 const Homelayouts = () => {
     return (
@@ -12,6 +13,7 @@ const Homelayouts = () => {
                     Home | Tech Deal
                 </title>
             </Helmet>
+            <ScrollToTop></ScrollToTop>
             <header>
                 <Navbar></Navbar>
             </header>

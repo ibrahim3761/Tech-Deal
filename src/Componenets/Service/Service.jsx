@@ -27,7 +27,7 @@ const Service = ({ data }) => {
 
       {/* View More Button */}
       <Link to={`/servicedetails/${id}`}>
-      <button className="mt-auto bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition">
+      <button className=" w-full mt-auto bg-indigo-600 text-white py-2 cursor-pointer px-4 rounded-lg hover:bg-indigo-700 transition">
         View More
       </button>
       </Link>

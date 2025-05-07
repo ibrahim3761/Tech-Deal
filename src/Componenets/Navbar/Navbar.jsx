@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import userIcon from "../../assets/user.png";
 import { Link, NavLink } from "react-router"; // Fix the router import
 import { AuthContext } from "../../Provider/AuthProvider";
+import { Bounce, toast } from "react-toastify";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext); // useContext instead of "use"
@@ -13,8 +14,8 @@ const Navbar = () => {
           to="/"
           className={({ isActive }) =>
             isActive
-              ? "border-b-2 border-green-500 text-green-600 font-semibold pb-1"
-              : "text-gray-700 hover:text-green-500 pb-1"
+              ? "border-b-2 border-blue-500 text-blue-600 font-semibold pb-1"
+              : "text-gray-700 hover:text-blue-500 pb-1"
           }
         >
           Home
@@ -25,8 +26,8 @@ const Navbar = () => {
           to="/about"
           className={({ isActive }) =>
             isActive
-              ? "border-b-2 border-green-500 text-green-600 font-semibold pb-1"
-              : "text-gray-700 hover:text-green-500 pb-1"
+              ? "border-b-2 border-blue-500 text-blue-600 font-semibold pb-1"
+              : "text-gray-700 hover:text-blue-500 pb-1"
           }
         >
           About
@@ -37,8 +38,8 @@ const Navbar = () => {
           to="/my-profile"
           className={({ isActive }) =>
             isActive
-              ? "border-b-2 border-green-500 text-green-600 font-semibold pb-1"
-              : "text-gray-700 hover:text-green-500 pb-1"
+              ? "border-b-2 border-blue-500 text-blue-600 font-semibold pb-1"
+              : "text-gray-700 hover:text-blue-500 pb-1"
           }
         >
           My profile
@@ -49,7 +50,20 @@ const Navbar = () => {
 
   const handleLogout = () => {
     logOut()
-      .then(() => console.log("User logged out"))
+      .then(() => {
+        console.log("User logged out");
+        toast.success("Log Out Successful", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        });
+      })
       .catch((err) => console.error(err));
   };
 
@@ -89,25 +103,32 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end space-x-2">
-          <div
-            className="tooltip tooltip-bottom"
-            data-tip={user?.displayName || "Guest"}
-          >
-            <img
-              src={user?.photoURL ? user.photoURL : userIcon}
-              alt="user"
-              className="w-10 h-10 rounded-full cursor-pointer"
-            />
-          </div>
-          {user ? (
-            <button onClick={handleLogout} className="btn bg-black text-white">
-              Log Out
-            </button>
-          ) : (
-            <Link to="/login" className="btn bg-black text-white">
-              Log In
+          <div className="flex justify-center gap-2">
+            <Link to="my-profile">
+              <div
+                className="tooltip tooltip-bottom"
+                data-tip={user?.displayName || "Guest"}
+              >
+                <img
+                  src={user?.photoURL ? user.photoURL : userIcon}
+                  alt="user"
+                  className="w-10 h-10 rounded-full cursor-pointer"
+                />
+              </div>
             </Link>
-          )}
+            {user ? (
+              <button
+                onClick={handleLogout}
+                className="btn bg-blue-500 text-white"
+              >
+                Log Out
+              </button>
+            ) : (
+              <Link to="/login" className="btn bg-blue-500 text-white">
+                Log In
+              </Link>
+            )}
+          </div>
         </div>
       </div>
     </div>
