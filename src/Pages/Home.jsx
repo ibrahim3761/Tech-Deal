@@ -14,7 +14,7 @@ const Home = () => {
         <Banner></Banner>
         {/* Subscription */}
         <section className="text-center">
-            <h2 className="text-3xl font-bold  mb-6">Our Services</h2>
+            <h2 className="text-3xl font-bold text-blue-500 mb-6">Our Services</h2>
             <div className="grid md:grid-cols-3">
               {
                 datas.map(data=><Service key={data.id} data ={data}></Service>)
@@ -23,7 +23,7 @@ const Home = () => {
         </section>
         {/* Why Subscribe Section */}
         <section className="text-center">
-          <h2 className="text-3xl font-bold  mb-6">❄️ Why Subscribe?</h2>
+          <h2 className="text-3xl font-bold text-blue-500 mb-6">❄️ Why Subscribe?</h2>
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-base-200 rounded-xl p-6 shadow-md hover:shadow-xl transition space-y-5">
               <FaMoneyBillWave className="text-4xl mx-auto text-green-500 mb-4" />
@@ -45,7 +45,7 @@ const Home = () => {
 
         {/* How It Works Section */}
         <section className="text-center">
-          <h2 className="text-3xl font-bold mb-6">📦 How It Works</h2>
+          <h2 className="text-3xl font-bold mb-6 text-blue-500">📦 How It Works</h2>
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-base-200 rounded-xl p-6 shadow-md hover:shadow-xl transition space-y-5">
               <FaCheckCircle className="text-4xl mx-auto text-indigo-500 mb-4" />
