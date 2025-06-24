@@ -72,7 +72,7 @@ It provides users with an intuitive interface to browse services, register/login
 To run Tech Deal on your local machine:
 
 1.Clone the repository:
-Download the project using Git:
+```bash
 git clone https://github.com/ibrahim3761/Tech-Deal.git
 cd Tech-Deal
 
