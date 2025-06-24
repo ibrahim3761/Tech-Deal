@@ -68,38 +68,9 @@ It provides users with an intuitive interface to browse services, register/login
 
 ---
 
-🛠️ How to Run Locally
-To run Tech Deal on your local machine:
+## 📄 License
+This project is built for educational and portfolio purposes.
 
-1.Clone the repository:
-```bash
-git clone https://github.com/ibrahim3761/Tech-Deal.git
-```bash
-cd Tech-Deal
+---
 
-2.Install dependencies:
-```bash
-Install all required packages using npm:
-```bash
-npm install
-
-3.Configure Firebase:
-```bash
-Create a Firebase project and enable Email/Password and Google authentication.
-```bash
-Then, create a .env file in the root directory with the following variables:
-
-```env
-VITE_apiKey = AIzaSyDSCSVQWKjACvqymTRY3JnFk2HyPnRXp0g 
-VITE_authDomain = tech-deal-69971.firebaseapp.com 
-VITE_projectId = tech-deal-69971 
-VITE_storageBucket = tech-deal-69971.firebasestorage.app 
-VITE_messagingSenderId = 234583114185 
-VITE_appId = 1:234583114185:web:a499ab29fefd9f095a6818 
-🔒 Note: Make sure not to expose your .env file in public repositories. For production, consider using environment secrets.
-
-4.Start the development server:
-```bash
-Launch the app locally:
-```bash
-npm run dev
+Made with ❤️ by Mohammad Ibrahim Abdullah 
